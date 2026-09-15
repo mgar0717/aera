@@ -124,18 +124,19 @@
   }
 
   /* Career */
-  .career-list{list-style:none;margin:0;padding:0;max-width:720px;margin-inline:auto;}
+  .career-list{list-style:none;margin:0;padding:0;max-width:640px;margin-inline:auto;}
   .career-list li{
-    display:grid;grid-template-columns:110px 1fr;gap:20px;
-    padding:18px 0;border-bottom:1px solid var(--line);
+    position:relative;padding:14px 0 14px 28px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);font-size:1rem;
   }
   .career-list li:last-child{border-bottom:none;}
-  .career-year{color:var(--accent);font-weight:500;font-family:'Playfair Display',serif;}
-  .career-list h3{font-size:1.05rem;margin:0 0 4px;font-family:'Noto Sans KR',sans-serif;font-weight:700;}
-  .career-list p{margin:0;color:var(--ink-soft);font-size:.95rem;}
-  @media (max-width:520px){
-    .career-list li{grid-template-columns:1fr;gap:4px;}
+  .career-list li::before{
+    content:"";position:absolute;left:0;top:24px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent);
   }
+  .career-list li strong{color:var(--ink);font-weight:700;}
 
   /* Posters */
   .poster-grid{
@@ -250,34 +251,14 @@
       <h2>경력</h2>
     </div>
     <ul class="career-list">
-      <li>
-        <span class="career-year">20XX</span>
-        <div>
-          <h3>[경력 제목 — 예: OO대학교 피아노과 졸업]</h3>
-          <p>[세부 설명]</p>
-        </div>
-      </li>
-      <li>
-        <span class="career-year">20XX</span>
-        <div>
-          <h3>[경력 제목 — 예: OO 콩쿨 입상]</h3>
-          <p>[세부 설명]</p>
-        </div>
-      </li>
-      <li>
-        <span class="career-year">20XX</span>
-        <div>
-          <h3>[경력 제목 — 예: OO 독주회 개최]</h3>
-          <p>[세부 설명]</p>
-        </div>
-      </li>
-      <li>
-        <span class="career-year">현재</span>
-        <div>
-          <h3>[경력 제목 — 예: OO 음악학원 피아노 강사 / 입시반주 활동]</h3>
-          <p>[세부 설명]</p>
-        </div>
-      </li>
+      <li><strong>숭실대학교 음악학사(피아노)</strong> 실기 우수 입학 및 수석 졸업</li>
+      <li>숭실대학교 개교 110주년 기념 음악회 연주</li>
+      <li>오페라 갈라콘서트 및 독창회 500회 이상 반주</li>
+      <li>광인성악회 전속 피아니스트</li>
+      <li>일칸트로 피아니스트</li>
+      <li>루체끼아라 피아니스트</li>
+      <li>콘솔라토레 싱어즈 피아니스트</li>
+      <li>벨라로제 앙상블 피아니스트</li>
     </ul>
   </div>
 </section>
