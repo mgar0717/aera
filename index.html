@@ -70,11 +70,22 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    padding:96px 0 80px;
     text-align:center;
-    background:
-      radial-gradient(circle at 50% 0%, var(--ivory-2), transparent 60%);
+    background:var(--ivory);
   }
+  .hero-media{
+    position:relative;width:100%;
+    aspect-ratio:4/5;max-height:560px;
+    overflow:hidden;background:var(--ivory-2);
+  }
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom, rgba(28,26,23,0) 55%, var(--ivory) 96%);
+  }
+  .hero .wrap{padding-top:36px;padding-bottom:56px;}
   .hero .eyebrow{
     letter-spacing:.25em;text-transform:uppercase;
     font-size:.78rem;color:var(--accent);margin-bottom:18px;
@@ -84,17 +95,11 @@
     max-width:560px;margin:18px auto 32px;
     color:var(--ink-soft);font-size:1.05rem;
   }
-  .hero-photo{
-    width:220px;height:220px;border-radius:50%;
-    margin:0 auto 32px;overflow:hidden;
-    background:var(--ivory-2);
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-size:.85rem;text-align:center;
-  }
-  .hero-photo img,
   .profile-photo img{
     width:100%;height:100%;object-fit:cover;
+  }
+  @media (max-width:600px){
+    .hero-media{aspect-ratio:3/4;}
   }
   .btn{
     display:inline-block;padding:14px 32px;border-radius:999px;
@@ -254,16 +259,11 @@
 </header>
 
 <section class="hero" id="home">
+  <div class="hero-media">
+    <img src="images/profile.jpg" alt="피아니스트 정애라"
+         onerror="this.style.display='none';">
+  </div>
   <div class="wrap">
-    <div class="hero-photo">
-      <svg viewBox="0 0 120 120" width="72" height="72" fill="none" stroke="var(--accent-2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M28 56 Q58 18 96 44 L79 61 Q54 41 33 63 Z"/>
-        <rect x="24" y="61" width="66" height="19" rx="3"/>
-        <line x1="33" y1="80" x2="33" y2="98"/>
-        <line x1="60" y1="80" x2="60" y2="98"/>
-        <line x1="84" y1="80" x2="84" y2="98"/>
-      </svg>
-    </div>
     <p class="eyebrow">Pianist</p>
     <h1>정애라</h1>
     <p class="lead">
