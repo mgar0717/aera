@@ -19,9 +19,9 @@
 - 프로필 사진: GitHub 웹에서 `images/profile.jpg` 경로로 파일을 올리면 히어로/프로필 두 곳에 자동으로 뜸 (Add file → Upload files, 폴더명까지 `images/profile.jpg`로 지정)
 - 프로필: 학력/약력 텍스트
 - 경력: `<li>` 항목 복사해서 연도별로 추가/수정
-- 포스터: `.poster-card` 안의 텍스트를 `<img src="posters/파일명.jpg" alt="...">` 로 교체 (이미지 파일은 `posters/` 폴더에 넣기)
+- 포스터: 이미지 파일을 `posters/` 폴더에 올리면 됨 (GitHub 웹 Add file → Upload files, `posters/` 안으로). 올린 뒤 `index.html`의 `.poster-card` 텍스트를 `<img src="posters/파일명.jpg" alt="...">` 로 교체
 - 입시반주: 서비스 소개 문구, 대상/방식 태그
-- 문의: 연락처, 카카오톡 오픈채팅 링크 등
+- 문의: 전화(입시반주 010-6483-5051 / 학원 0507-1304-8709), 이메일(armg0717@gmail.com), 위치는 이미 반영됨
 
 ## 구조
 
