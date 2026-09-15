@@ -70,22 +70,18 @@
 
   /* ---------- Hero ---------- */
   .hero{
+    padding:96px 0 80px;
     text-align:center;
-    background:var(--ivory);
+    background:
+      radial-gradient(circle at 50% 0%, var(--ivory-2), transparent 60%);
   }
-  .hero-media{
-    position:relative;width:100%;
-    aspect-ratio:4/5;max-height:560px;
-    overflow:hidden;background:var(--ivory-2);
+  .hero-icon{
+    width:168px;height:168px;border-radius:50%;
+    margin:0 auto 32px;
+    background:var(--ivory-2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
   }
-  .hero-media img{
-    width:100%;height:100%;object-fit:cover;object-position:top center;
-  }
-  .hero-media::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom, rgba(28,26,23,0) 55%, var(--ivory) 96%);
-  }
-  .hero .wrap{padding-top:36px;padding-bottom:56px;}
   .hero .eyebrow{
     letter-spacing:.25em;text-transform:uppercase;
     font-size:.78rem;color:var(--accent);margin-bottom:18px;
@@ -259,11 +255,17 @@
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-media">
-    <img src="images/profile.jpg" alt="피아니스트 정애라"
-         onerror="this.style.display='none';">
-  </div>
   <div class="wrap">
+    <div class="hero-icon">
+      <svg viewBox="0 0 120 120" width="96" height="96">
+        <path d="M26 55 Q56 15 97 43 L80 61 Q54 40 31 62 Z" fill="var(--accent-2)"/>
+        <rect x="22" y="61" width="68" height="20" rx="3" fill="var(--accent-2)"/>
+        <line x1="80" y1="46" x2="80" y2="61" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="31" y1="81" x2="31" y2="99" stroke="var(--accent-2)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="81" x2="60" y2="99" stroke="var(--accent-2)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="84" y1="81" x2="84" y2="99" stroke="var(--accent-2)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
     <p class="eyebrow">Pianist</p>
     <h1>정애라</h1>
     <p class="lead">
