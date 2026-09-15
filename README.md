@@ -1,0 +1,28 @@
+# aera
+
+피아니스트 프로필 · 경력 · 공연 포스터 · 입시반주 홍보용 홈페이지.
+
+빌드 도구 없이 `index.html` 하나로 구성된 정적 사이트 (casio, dbic 레포와 동일한 방식). GitHub Pages로 바로 배포합니다.
+
+## 배포 (GitHub Pages)
+
+1. 저장소 **Settings → Pages**
+2. Source: `Deploy from a branch`
+3. Branch: `main` / `/(root)`
+4. 저장하면 `https://mgar0717.github.io/aera/` 에서 확인 가능
+
+## 내용 채우기
+
+`index.html`을 열어 대괄호 `[ ]`로 표시된 부분을 실제 내용으로 바꾸면 됩니다.
+
+- `[성함]`, `[대표 사진]`, `[한 줄 소개]` — 상단 히어로 영역
+- 프로필: 학력/약력 텍스트, 프로필 사진
+- 경력: `<li>` 항목 복사해서 연도별로 추가/수정
+- 포스터: `.poster-card` 안의 텍스트를 `<img src="posters/파일명.jpg" alt="...">` 로 교체 (이미지 파일은 `posters/` 폴더에 넣기)
+- 입시반주: 서비스 소개 문구, 대상/방식 태그
+- 문의: 연락처, 카카오톡 오픈채팅 링크 등
+
+## 구조
+
+- `index.html` — 페이지 전체 (HTML + CSS + JS, 별도 파일 없음)
+- `posters/` — 연주 포스터 이미지 (필요 시 생성)
