@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>[피아니스트 성함] Piano</title>
-<meta name="description" content="피아니스트 [성함]의 프로필, 경력, 공연 포스터와 입시반주 안내">
+<title>정애라 Piano</title>
+<meta name="description" content="피아니스트 정애라의 프로필, 경력, 공연 포스터와 입시반주 안내">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -87,6 +87,10 @@
     border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
     color:var(--ink-soft);font-size:.85rem;text-align:center;
+  }
+  .hero-photo img,
+  .profile-photo img{
+    width:100%;height:100%;object-fit:cover;
   }
   .btn{
     display:inline-block;padding:14px 32px;border-radius:999px;
@@ -180,7 +184,7 @@
 
 <header>
   <nav class="wrap">
-    <a href="#home" class="brand">[성함] Piano</a>
+    <a href="#home" class="brand">정애라 Piano</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#profile">프로필</a></li>
       <li><a href="#career">경력</a></li>
@@ -196,9 +200,13 @@
 
 <section class="hero" id="home">
   <div class="wrap">
-    <div class="hero-photo">[대표 사진]</div>
+    <div class="hero-photo">
+      <img src="images/profile.jpg" alt="정애라 프로필 사진"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span style="display:none;">[대표 사진]</span>
+    </div>
     <p class="eyebrow">Pianist</p>
-    <h1>[피아니스트 성함]</h1>
+    <h1>정애라</h1>
     <p class="lead">
       [한 줄 소개 — 예: 클래식 피아노 연주와 입시반주 전문. 섬세한 표현과 정확한 반주로
       학생들의 실기시험을 함께 준비합니다.]
@@ -214,7 +222,11 @@
       <h2>프로필</h2>
     </div>
     <div class="profile">
-      <div class="profile-photo">[프로필 사진]</div>
+      <div class="profile-photo">
+        <img src="images/profile.jpg" alt="정애라 프로필 사진"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none;">[프로필 사진]</span>
+      </div>
       <div class="profile-text">
         <p>
           [학력 요약 — 예: OO대학교 피아노과 졸업, OO대학원 피아노 전공 졸업 등을 이곳에 적어주세요.]
@@ -323,7 +335,7 @@
 </section>
 
 <footer>
-  &copy; <span id="year"></span> [성함] Piano. All rights reserved.
+  &copy; <span id="year"></span> 정애라 Piano. All rights reserved.
 </footer>
 
 <script>
