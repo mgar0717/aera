@@ -146,10 +146,25 @@
   .poster-card{
     aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;
     background:var(--ivory-2);border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-size:.85rem;text-align:center;padding:16px;
+    display:block;padding:0;margin:0;cursor:pointer;font:inherit;
+    -webkit-appearance:none;appearance:none;
+    transition:transform .2s,box-shadow .2s;
   }
+  .poster-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(28,26,23,.12);}
   .poster-card img{width:100%;height:100%;object-fit:cover;}
+
+  .lightbox{
+    display:none;position:fixed;inset:0;z-index:100;
+    background:rgba(20,17,13,.92);
+    align-items:center;justify-content:center;padding:32px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:min(90vw,720px);max-height:85vh;border-radius:8px;}
+  .lightbox-close{
+    position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:20px;
+    background:none;border:0;color:var(--ivory);font-size:2.2rem;
+    line-height:1;cursor:pointer;padding:8px;
+  }
 
   /* Lessons / 입시반주 */
   .lesson-box{
@@ -236,15 +251,20 @@
 <section class="hero" id="home">
   <div class="wrap">
     <div class="hero-photo">
-      <img src="images/profile.jpg" alt="정애라 프로필 사진"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <span style="display:none;">[대표 사진]</span>
+      <svg viewBox="0 0 120 120" width="72" height="72" fill="none" stroke="var(--accent-2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M28 56 Q58 18 96 44 L79 61 Q54 41 33 63 Z"/>
+        <rect x="24" y="61" width="66" height="19" rx="3"/>
+        <line x1="33" y1="80" x2="33" y2="98"/>
+        <line x1="60" y1="80" x2="60" y2="98"/>
+        <line x1="84" y1="80" x2="84" y2="98"/>
+      </svg>
     </div>
     <p class="eyebrow">Pianist</p>
     <h1>정애라</h1>
     <p class="lead">
-      [한 줄 소개 — 예: 클래식 피아노 연주와 입시반주 전문. 섬세한 표현과 정확한 반주로
-      학생들의 실기시험을 함께 준비합니다.]
+      클래식 피아노 연주와 입시반주를 전문으로 합니다. 오페라 갈라콘서트·독창회 반주
+      500회 이상의 경험을 바탕으로, 예중·예고·음대 입시를 준비하는 학생들의
+      실기시험을 세심하게 함께 준비합니다.
     </p>
     <a href="#contact" class="btn">입시반주 문의하기</a>
   </div>
@@ -264,14 +284,18 @@
       </div>
       <div class="profile-text">
         <p>
-          [학력 요약 — 예: OO대학교 피아노과 졸업, OO대학원 피아노 전공 졸업 등을 이곳에 적어주세요.]
+          숭실대학교 음악학사(피아노)를 실기 우수 입학 및 수석으로 졸업했습니다.
+          선화예중, 계원예고, 고양예고, 숭실대학교 등에서 출강했으며,
+          오페라 갈라콘서트와 독창회 반주를 500회 이상 진행해 왔습니다.
         </p>
         <p>
-          [연주 및 활동 소개 — 예: 다수의 독주회 및 협연 경력, 현재 OO에서 레슨 및
-          입시반주 활동 중.]
+          광인성악회, 루체끼아라, 일 꽈트로, 벨라로제 앙상블, 콘솔라토르 싱어 등
+          다수 성악·중창 단체의 전속 피아니스트로 활동하며, 테너 박성원(전 국립오페라단
+          단장, 연세대 명예교수)의 전속 피아니스트로도 함께하고 있습니다.
         </p>
         <p>
-          [전문 분야 — 예: 콩쿨/실기시험 반주, 성인 취미 레슨, 어린이 피아노 지도 등.]
+          현재는 예중·예고·음대 입시반주와 더불어, 인천 부평에서 조이피아노
+          음악학원을 운영하며 유아부터 성인까지 1:1 맞춤 레슨을 진행하고 있습니다.
         </p>
       </div>
     </div>
@@ -308,11 +332,21 @@
       <p class="eyebrow">Performances</p>
       <h2>연주 포스터</h2>
     </div>
-    <div class="poster-grid">
-      <div class="poster-card">[포스터 이미지 1]</div>
-      <div class="poster-card">[포스터 이미지 2]</div>
-      <div class="poster-card">[포스터 이미지 3]</div>
-      <div class="poster-card">[포스터 이미지 4]</div>
+    <div class="poster-grid" id="posterGrid">
+      <button class="poster-card" data-full="posters/1.jpg"><img src="posters/1.jpg" alt="공연 포스터 1" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/2.jpg"><img src="posters/2.jpg" alt="공연 포스터 2" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/3.jpg"><img src="posters/3.jpg" alt="공연 포스터 3" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/4.jpg"><img src="posters/4.jpg" alt="공연 포스터 4" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/5.jpg"><img src="posters/5.jpg" alt="공연 포스터 5" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/6.jpg"><img src="posters/6.jpg" alt="공연 포스터 6" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/7.jpg"><img src="posters/7.jpg" alt="공연 포스터 7" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/8.jpg"><img src="posters/8.jpg" alt="공연 포스터 8" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/9.jpg"><img src="posters/9.jpg" alt="공연 포스터 9" loading="lazy"></button>
+      <button class="poster-card" data-full="posters/10.jpg"><img src="posters/10.jpg" alt="공연 포스터 10" loading="lazy"></button>
+    </div>
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
+      <img id="lightboxImg" src="" alt="">
     </div>
   </div>
 </section>
@@ -325,14 +359,15 @@
     </div>
     <div class="lesson-box">
       <p>
-        [입시반주 서비스 소개 — 예: 예중/예고/음대 입시를 준비하는 학생들을 위한
-        전문 반주를 제공합니다. 연습 단계부터 실전까지 함께 맞춰드립니다.]
+        예중·예고·음대 입시를 준비하는 학생들을 위한 전문 반주를 제공합니다.
+        오페라 갈라콘서트와 독창회 반주 500회 이상의 경험을 바탕으로, 레슨실
+        연습 단계부터 실기시험 당일까지 꼼꼼하게 함께 맞춰드립니다.
       </p>
       <ul class="lesson-points">
-        <li>[대상: 예중/예고/음대 입시]</li>
-        <li>[레슨실 반주]</li>
-        <li>[실기시험 동행 반주]</li>
-        <li>[사전 합주 연습]</li>
+        <li>예중 · 예고 · 음대 입시</li>
+        <li>레슨실 반주</li>
+        <li>실기시험 동행 반주</li>
+        <li>사전 합주 연습</li>
       </ul>
       <a href="#contact" class="btn">문의하기</a>
     </div>
@@ -409,6 +444,24 @@
       navLinks.classList.remove('open');
       burger.setAttribute('aria-expanded', false);
     });
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.getElementById('posterGrid').addEventListener('click', (e) => {
+    const card = e.target.closest('.poster-card');
+    if (!card) return;
+    lightboxImg.src = card.dataset.full;
+    lightboxImg.alt = card.querySelector('img').alt;
+    lightbox.classList.add('open');
+  });
+  const closeLightbox = () => lightbox.classList.remove('open');
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
   });
 </script>
 
