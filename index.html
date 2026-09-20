@@ -202,12 +202,9 @@
     display:flex;align-items:center;justify-content:center;
     color:var(--ink-soft);font-size:.85rem;text-align:center;padding:16px;
   }
-  .profile-text{display:flex;flex-direction:column;gap:22px;}
-  .profile-fact-label{
-    display:block;color:var(--accent);font-weight:700;
-    font-size:.78rem;letter-spacing:.05em;margin-bottom:6px;
-  }
+  .profile-text{display:flex;flex-direction:column;gap:18px;}
   .profile-text p{color:var(--ink-soft);margin:0;}
+  .profile-more{font-size:.85rem;color:var(--accent);}
   @media (max-width:700px){
     .profile{grid-template-columns:1fr;}
     .profile-photo{max-width:280px;margin:0 auto;}
@@ -416,35 +413,18 @@
         <span style="display:none;">[프로필 사진]</span>
       </div>
       <div class="profile-text">
-        <div class="profile-fact">
-          <span class="profile-fact-label">학력·경력</span>
-          <p>
-            숭실대학교 음악학사(피아노) 실기 수석 졸업.
-            선화예중, 계원예고, 고양예고, 숭실대학교 출강.
-            오페라 갈라콘서트·독창회 다수 반주.
-          </p>
-        </div>
-        <div class="profile-fact">
-          <span class="profile-fact-label">주요 활동</span>
-          <p>
-            광인성악회, 루체끼아라, 일 꽈트로, 벨라로제 앙상블,
-            콘솔라토르 싱어 등 전속 피아니스트.
-            테너 박성원(전 국립오페라단 단장, 연세대 명예교수) 전속 피아니스트.
-          </p>
-        </div>
-        <div class="profile-fact">
-          <span class="profile-fact-label">전문 분야</span>
-          <p>
-            성악반주 전문. 조성·빠르기 무관 즉시 맞춤 반주.
-          </p>
-        </div>
-        <div class="profile-fact">
-          <span class="profile-fact-label">현재</span>
-          <p>
-            예중·예고·음대 입시반주. 인천 부평 조이피아노 음악학원 운영,
-            유아~성인 1:1 맞춤 레슨.
-          </p>
-        </div>
+        <p>
+          숭실대학교 음악학사(피아노)를 수석으로 졸업한 성악반주 전문
+          피아니스트입니다. 조성·빠르기에 관계없이 즉시 맞춰 반주하며,
+          다수의 오페라 갈라콘서트·독창회 무대와 성악 앙상블에서
+          활동해 왔습니다.
+        </p>
+        <p>
+          현재는 예중·예고·음대 입시반주와 함께, 인천 부평에서
+          조이피아노 음악학원을 운영하며 유아부터 성인까지
+          1:1 맞춤 레슨을 진행하고 있습니다.
+        </p>
+        <p class="profile-more">자세한 활동 내역은 아래 경력에서 확인하실 수 있습니다.</p>
       </div>
     </div>
   </div>
