@@ -70,9 +70,11 @@
   img{max-width:100%;display:block;}
   h1,h2,h3{margin:0 0 .4em;color:var(--ink);}
   h3{font-family:'Cafe24OhsquareAir',var(--font-en);}
-  /* Pure-English brand accents: Cafe24 Behappy first, Pretendard for
-     anything it doesn't cover (©, · etc. fall through automatically). */
-  .eyebrow,footer{
+  /* Pure-English brand accent: Cafe24 Behappy first, Pretendard for
+     anything it doesn't cover (©, · etc. fall through automatically).
+     footer is NOT included here — it has "정애라" mixed into the English,
+     so it needs to keep body's Cafe24OhsquareAir-first stack instead. */
+  .eyebrow{
     font-family:var(--font-en);
   }
   /* For strings where digits sit directly against Latin letters (an email,
