@@ -238,10 +238,11 @@
     background:var(--accent);
   }
   .career-list li::after{
-    content:"";position:absolute;left:3px;top:28px;bottom:0;
+    content:"";position:absolute;left:3px;top:0;bottom:0;
     width:1px;background:var(--line);
   }
-  .career-list li:last-child::after{display:none;}
+  .career-list li:first-child::after{top:28px;}
+  .career-list li:last-child::after{bottom:auto;height:32px;}
 
   /* Posters */
   .poster-grid{
