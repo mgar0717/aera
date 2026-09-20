@@ -168,7 +168,8 @@
       var(--ivory-2);
   }
   .stat-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+    max-width:600px;margin:0 auto;
     text-align:center;padding:40px 0;
   }
   .stat{
@@ -182,7 +183,7 @@
   }
   .stat span{font-size:.8rem;color:var(--ink-soft);}
   @media (max-width:700px){
-    .stat-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px;padding:32px 0;}
+    .stat-grid{gap:28px 20px;padding:32px 0;}
   }
 
   /* ---------- Sections ---------- */
