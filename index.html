@@ -10,30 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
 <style>
+  /* Cafe24 Ohsquare/Air only ever get to draw Hangul + digits. Everything else
+     (Latin letters, every symbol) is out of unicode-range on purpose, so the
+     browser falls through to Pretendard — the same font the eyebrow labels
+     use — instead of risking one of Cafe24's several blank-glyph symbols. */
   @font-face{
     font-family:'Cafe24Ohsquare';
     src:url('fonts/Cafe24Ohsquare.woff') format('woff');
     font-weight:normal;font-style:normal;font-display:swap;
+    unicode-range:U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
   }
   @font-face{
     font-family:'Cafe24OhsquareAir';
     src:url('fonts/Cafe24Ohsquareair.woff') format('woff');
     font-weight:normal;font-style:normal;font-display:swap;
-  }
-  /* Cafe24 Ohsquare/Air ship blank glyphs for these symbols (·, –, —, ×, ©);
-     patch them with Pretendard via unicode-range so the fonts above never
-     get a chance to render them empty. */
-  @font-face{
-    font-family:'Cafe24Ohsquare';
-    src:url('fonts/Pretendard-Medium.woff2') format('woff2');
-    font-weight:normal;font-style:normal;font-display:swap;
-    unicode-range:U+00A9,U+00B7,U+00D7,U+2013,U+2014;
-  }
-  @font-face{
-    font-family:'Cafe24OhsquareAir';
-    src:url('fonts/Pretendard-Medium.woff2') format('woff2');
-    font-weight:normal;font-style:normal;font-display:swap;
-    unicode-range:U+00A9,U+00B7,U+00D7,U+2013,U+2014;
+    unicode-range:U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
   }
   :root{
     --ivory:#faf7f2;
@@ -62,7 +53,8 @@
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block;}
-  h1,h2,h3{font-family:'Playfair Display','Noto Serif KR',serif;margin:0 0 .4em;color:var(--ink);}
+  h1,h2,h3{margin:0 0 .4em;color:var(--ink);}
+  h3{font-family:'Cafe24OhsquareAir','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;}
   /* English-only brand accents keep their original typeface, untouched by the Korean-wide font swap */
   .eyebrow,footer{
     font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
@@ -158,7 +150,8 @@
   }
   .hero h1{
     font-size:clamp(2.2rem,6vw,3.6rem);
-    font-family:'Cafe24Ohsquare',sans-serif;letter-spacing:.01em;
+    font-family:'Cafe24Ohsquare','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    letter-spacing:.01em;
   }
   .hero .signature{
     font-family:'Playfair Display','Noto Serif KR',serif;
@@ -239,7 +232,8 @@
   }
   .section-head h2{
     font-size:clamp(1.7rem,4vw,2.3rem);
-    font-family:'Cafe24Ohsquare',sans-serif;letter-spacing:.01em;
+    font-family:'Cafe24Ohsquare','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    letter-spacing:.01em;
   }
   .section-head h2::after{
     content:"";display:block;width:40px;height:2px;
