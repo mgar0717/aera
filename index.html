@@ -279,22 +279,16 @@
 
   /* Accompaniment (반주 안내) */
   .service-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    display:grid;grid-template-columns:1fr;gap:16px;
     max-width:640px;margin:0 auto;
   }
   .service-card{
     background:var(--ivory-2);border:1px solid var(--line);
-    border-radius:var(--radius);padding:20px 14px;
+    border-radius:var(--radius);padding:24px;
     box-shadow:0 4px 20px rgba(28,26,23,.05);
   }
-  .service-card h3{font-size:.95rem;margin-bottom:8px;}
-  .service-card p{color:var(--ink-soft);font-size:.78rem;margin:0;}
-  @media (max-width:480px){
-    .service-grid{gap:8px;}
-    .service-card{padding:14px 8px;}
-    .service-card h3{font-size:.82rem;}
-    .service-card p{font-size:.7rem;}
-  }
+  .service-card h3{font-size:1.05rem;margin-bottom:8px;}
+  .service-card p{color:var(--ink-soft);font-size:.9rem;margin:0;}
 
   /* Academy */
   .academy-card{
