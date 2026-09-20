@@ -18,13 +18,21 @@
     font-family:'Cafe24Ohsquare';
     src:url('fonts/Cafe24Ohsquare.woff') format('woff');
     font-weight:normal;font-style:normal;font-display:swap;
-    unicode-range:U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
+    unicode-range:U+0020,U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
   }
   @font-face{
     font-family:'Cafe24OhsquareAir';
     src:url('fonts/Cafe24Ohsquareair.woff') format('woff');
     font-weight:normal;font-style:normal;font-display:swap;
-    unicode-range:U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
+    unicode-range:U+0020,U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
+  }
+  /* English-only Cafe24 family member (Behappy): no Hangul at all, and the
+     ·/–/—/×/© symbols are simply absent from its cmap (not blank), so the
+     stack below falls through to Pretendard for those automatically. */
+  @font-face{
+    font-family:'Cafe24Behappy';
+    src:url('fonts/Cafe24Behappy.woff2') format('woff2');
+    font-weight:normal;font-style:normal;font-display:swap;
   }
   :root{
     --ivory:#faf7f2;
@@ -36,6 +44,7 @@
     --accent-2:#3d3327;
     --radius:14px;
     --maxw:1100px;
+    --font-en:'Cafe24Behappy','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;scrollbar-color:var(--accent) var(--ivory-2);}
@@ -46,7 +55,7 @@
     margin:0;
     background:var(--ivory);
     color:var(--ink);
-    font-family:'Cafe24OhsquareAir','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    font-family:'Cafe24OhsquareAir',var(--font-en);
     line-height:1.7;
     word-break:keep-all;
     overflow-wrap:break-word;
@@ -54,11 +63,11 @@
   }
   img{max-width:100%;display:block;}
   h1,h2,h3{margin:0 0 .4em;color:var(--ink);}
-  h3{font-family:'Cafe24OhsquareAir','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;}
-  /* English-only brand accents keep their original typeface, untouched by the Korean-wide font swap */
+  h3{font-family:'Cafe24OhsquareAir',var(--font-en);}
+  /* Pure-English brand accents: Cafe24 Behappy first, Pretendard for
+     anything it doesn't cover (©, · etc. fall through automatically). */
   .eyebrow,footer{
-    font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
-    letter-spacing:-.01em;
+    font-family:var(--font-en);
   }
   a{color:inherit;text-decoration:none;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px;}
@@ -73,7 +82,7 @@
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .brand{
     display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
-    font-family:'Pretendard Variable',Pretendard,sans-serif;font-weight:600;
+    font-family:var(--font-en);font-weight:600;
     font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;
   }
@@ -150,7 +159,7 @@
   }
   .hero h1{
     font-size:clamp(2.2rem,6vw,3.6rem);
-    font-family:'Cafe24Ohsquare','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    font-family:'Cafe24Ohsquare',var(--font-en);
     letter-spacing:.01em;
   }
   .hero .signature{
@@ -232,7 +241,7 @@
   }
   .section-head h2{
     font-size:clamp(1.7rem,4vw,2.3rem);
-    font-family:'Cafe24Ohsquare','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    font-family:'Cafe24Ohsquare',var(--font-en);
     letter-spacing:.01em;
   }
   .section-head h2::after{
@@ -331,7 +340,6 @@
   .academy-info p,.academy-tuition p{color:var(--ink-soft);margin:0;}
   .academy-tuition h3{font-size:1.05rem;margin-bottom:16px;}
   .tuition-freq{
-    font-family:'Pretendard Variable',Pretendard,sans-serif;
     font-weight:400;font-size:.85rem;color:var(--ink-soft);
   }
   .tuition-list{list-style:none;margin:0 0 16px;padding:0;}
@@ -366,6 +374,7 @@
   footer{
     padding:24px;text-align:center;font-size:.8rem;
     color:#c9bfa9;background:var(--accent-2);
+    letter-spacing:.03em;word-spacing:.2em;
   }
 </style>
 </head>
