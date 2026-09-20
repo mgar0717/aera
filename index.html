@@ -51,9 +51,12 @@
   }
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .brand{
-    display:inline-flex;align-items:center;gap:8px;
+    display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
     font-family:'Playfair Display','Noto Serif KR',serif;font-weight:700;
     font-size:1.3rem;letter-spacing:.02em;text-decoration:none;
+  }
+  @media (max-width:400px){
+    .brand{font-size:1.05rem;gap:6px;}
   }
   .brand-icon{color:var(--accent);flex-shrink:0;}
   .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
@@ -363,7 +366,7 @@
         <path d="M26 55 Q56 15 97 43 L80 61 Q54 40 31 62 Z" fill="currentColor"/>
         <rect x="22" y="61" width="68" height="20" rx="3" fill="currentColor"/>
       </svg>
-      Pf. 정애라
+      Pf. Jeong Aera
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#profile">프로필</a></li>
