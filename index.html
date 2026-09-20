@@ -25,12 +25,18 @@
     font-weight:normal;font-style:normal;font-display:swap;
     unicode-range:U+0020,U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
   }
-  /* English-only Cafe24 family member (Angbanana): no Hangul at all, and
-     the ·/–/—/×/© symbols are simply absent from its cmap (not blank), so
-     the stack below falls through to Pretendard for those automatically. */
+  /* Nav brand + eyebrow labels only. */
   @font-face{
     font-family:'Cafe24Angbanana';
     src:url('fonts/Cafe24Angbanana.woff2') format('woff2');
+    font-weight:normal;font-style:normal;font-display:swap;
+  }
+  /* English-only Cafe24 family member (Behappy): no Hangul at all, and
+     the ·/–/—/×/© symbols are simply absent from its cmap (not blank), so
+     the stack below falls through to Pretendard for those automatically. */
+  @font-face{
+    font-family:'Cafe24Behappy';
+    src:url('fonts/Cafe24Behappy.woff2') format('woff2');
     font-weight:normal;font-style:normal;font-display:swap;
   }
   /* Used only for the hero's italic signature line — everywhere else
@@ -50,7 +56,8 @@
     --accent-2:#3d3327;
     --radius:14px;
     --maxw:1100px;
-    --font-en:'Cafe24Angbanana','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    --font-en:'Cafe24Behappy','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    --font-en-brand:'Cafe24Angbanana','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;scrollbar-color:var(--accent) var(--ivory-2);}
@@ -70,10 +77,10 @@
   img{max-width:100%;display:block;}
   h1,h2,h3{margin:0 0 .4em;color:var(--ink);}
   h3{font-family:'Cafe24OhsquareAir',var(--font-en);}
-  /* Pure-English brand accent: Cafe24 Behappy first, Pretendard for
-     anything it doesn't cover (©, · etc. fall through automatically). */
+  /* Nav brand + eyebrow labels keep Cafe24 Angbanana; everything else
+     (contact info, footer, body fallback) uses Behappy via --font-en. */
   .eyebrow{
-    font-family:var(--font-en);
+    font-family:var(--font-en-brand);
   }
   /* For strings where digits sit directly against Latin letters (an email,
      a handle) — keeps the whole run on one font instead of the digits
@@ -92,7 +99,7 @@
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .brand{
     display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
-    font-family:var(--font-en);font-weight:600;
+    font-family:var(--font-en-brand);font-weight:600;
     font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;
   }
