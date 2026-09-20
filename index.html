@@ -25,25 +25,19 @@
     font-weight:normal;font-style:normal;font-display:swap;
     unicode-range:U+0020,U+AC00-D7A3,U+1100-11FF,U+3130-318F,U+A960-A97F,U+D7B0-D7FF,U+0030-0039;
   }
-  /* English-only Cafe24 family member (Behappy): no Hangul at all, and the
-     ·/–/—/×/© symbols are simply absent from its cmap (not blank), so the
-     stack below falls through to Pretendard for those automatically. */
-  @font-face{
-    font-family:'Cafe24Behappy';
-    src:url('fonts/Cafe24Behappy.woff2') format('woff2');
-    font-weight:normal;font-style:normal;font-display:swap;
-  }
-  /* Used only for the hero's italic signature line — everywhere else
-     stays on Behappy. */
-  @font-face{
-    font-family:'Cafe24Lovingu';
-    src:url('fonts/Cafe24Lovingu.woff2') format('woff2');
-    font-weight:normal;font-style:normal;font-display:swap;
-  }
-  /* Nav brand only. */
+  /* English-only Cafe24 family member (Angbanana): no Hangul at all, and
+     the ·/–/—/×/© symbols are simply absent from its cmap (not blank), so
+     the stack below falls through to Pretendard for those automatically. */
   @font-face{
     font-family:'Cafe24Angbanana';
     src:url('fonts/Cafe24Angbanana.woff2') format('woff2');
+    font-weight:normal;font-style:normal;font-display:swap;
+  }
+  /* Used only for the hero's italic signature line — everywhere else
+     stays on Angbanana. */
+  @font-face{
+    font-family:'Cafe24Lovingu';
+    src:url('fonts/Cafe24Lovingu.woff2') format('woff2');
     font-weight:normal;font-style:normal;font-display:swap;
   }
   :root{
@@ -56,7 +50,7 @@
     --accent-2:#3d3327;
     --radius:14px;
     --maxw:1100px;
-    --font-en:'Cafe24Behappy','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
+    --font-en:'Cafe24Angbanana','Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;scrollbar-color:var(--accent) var(--ivory-2);}
@@ -98,7 +92,7 @@
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .brand{
     display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
-    font-family:'Cafe24Angbanana',var(--font-en);font-weight:600;
+    font-family:var(--font-en);font-weight:600;
     font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;
   }
