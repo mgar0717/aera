@@ -132,7 +132,10 @@
     letter-spacing:.25em;text-transform:uppercase;
     font-size:.78rem;color:var(--accent);margin-bottom:18px;
   }
-  .hero h1{font-size:clamp(2.2rem,6vw,3.6rem);}
+  .hero h1{
+    font-size:clamp(2.2rem,6vw,3.6rem);
+    font-family:'Cafe24Ohsquare',sans-serif;letter-spacing:.01em;
+  }
   .hero .signature{
     font-family:'Playfair Display','Noto Serif KR',serif;
     font-style:italic;font-weight:500;
@@ -210,7 +213,10 @@
     letter-spacing:.25em;text-transform:uppercase;
     font-size:.75rem;color:var(--accent);
   }
-  .section-head h2{font-size:clamp(1.7rem,4vw,2.3rem);}
+  .section-head h2{
+    font-size:clamp(1.7rem,4vw,2.3rem);
+    font-family:'Cafe24Ohsquare',sans-serif;letter-spacing:.01em;
+  }
   .section-head h2::after{
     content:"";display:block;width:40px;height:2px;
     background:var(--accent);margin:16px auto 0;border-radius:2px;
@@ -296,10 +302,6 @@
   .service-card p{color:var(--ink-soft);font-size:.9rem;margin:0;}
 
   /* Academy */
-  #academy .section-head h2{
-    font-family:'Cafe24Ohsquare',sans-serif;
-    letter-spacing:.01em;
-  }
   .academy-card{
     display:grid;grid-template-columns:1fr;gap:28px;align-items:start;
     max-width:640px;margin:0 auto;text-align:left;
