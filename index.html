@@ -22,7 +22,10 @@
     --maxw:1100px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scrollbar-color:var(--accent) var(--ivory-2);}
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--ivory-2);}
+  ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:999px;border:2px solid var(--ivory-2);}
   body{
     margin:0;
     background:var(--ivory);
@@ -49,8 +52,27 @@
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
   .brand{font-family:'Playfair Display','Noto Serif KR',serif;font-weight:700;font-size:1.3rem;letter-spacing:.02em;text-decoration:none;}
   .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
-  .nav-links a{text-decoration:none;font-size:.95rem;color:var(--ink-soft);transition:color .2s;}
+  .nav-links a{
+    position:relative;text-decoration:none;font-size:.95rem;
+    color:var(--ink-soft);transition:color .2s;
+  }
   .nav-links a:hover{color:var(--accent);}
+  .nav-links a.active{color:var(--accent);}
+  .nav-links a.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;
+    height:2px;background:var(--accent);border-radius:2px;
+  }
+  @media (max-width:760px){
+    .nav-links a.active::after{display:none;}
+    .nav-links a.active{background:var(--ivory-2);}
+  }
+
+  /* Scroll reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
   .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;}
   .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s;}
 
@@ -104,6 +126,21 @@
   }
   .btn:hover{background:var(--accent);transform:translateY(-1px);}
 
+  /* ---------- Stats ---------- */
+  .stats{background:var(--ivory-2);}
+  .stat-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    text-align:center;padding:40px 0;
+  }
+  .stat strong{
+    display:block;font-family:'Playfair Display','Noto Serif KR',serif;
+    font-size:clamp(1.4rem,4vw,1.9rem);color:var(--accent-2);margin-bottom:6px;
+  }
+  .stat span{font-size:.82rem;color:var(--ink-soft);}
+  @media (max-width:600px){
+    .stat-grid{grid-template-columns:1fr;gap:24px;padding:32px 0;}
+  }
+
   /* ---------- Sections ---------- */
   section{padding:88px 0;}
   section + section{border-top:1px solid var(--line);}
@@ -148,14 +185,23 @@
     gap:24px;
   }
   .poster-card{
+    position:relative;
     aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;
     background:var(--ivory-2);border:1px solid var(--line);
     display:block;padding:0;margin:0;cursor:pointer;font:inherit;
     -webkit-appearance:none;appearance:none;
     transition:transform .2s,box-shadow .2s;
   }
-  .poster-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(28,26,23,.12);}
-  .poster-card img{width:100%;height:100%;object-fit:cover;}
+  .poster-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(28,26,23,.16);}
+  .poster-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .poster-card:hover img{transform:scale(1.08);}
+  .poster-zoom{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:var(--ivory);font-size:.82rem;letter-spacing:.05em;
+    background:rgba(28,26,23,0);opacity:0;
+    transition:opacity .3s ease,background .3s ease;
+  }
+  .poster-card:hover .poster-zoom{opacity:1;background:rgba(28,26,23,.42);}
 
   .lightbox{
     display:none;position:fixed;inset:0;z-index:100;
@@ -276,13 +322,21 @@
   </div>
 </section>
 
+<section class="stats">
+  <div class="wrap stat-grid reveal">
+    <div class="stat"><strong>500+</strong><span>갈라콘서트·독창회 반주</span></div>
+    <div class="stat"><strong>수석</strong><span>숭실대학교 음악학사 졸업</span></div>
+    <div class="stat"><strong>유아~성인</strong><span>조이피아노 1:1 맞춤 레슨</span></div>
+  </div>
+</section>
+
 <section id="profile">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Profile</p>
       <h2>프로필</h2>
     </div>
-    <div class="profile">
+    <div class="profile reveal">
       <div class="profile-photo">
         <img src="images/profile.jpg" alt="정애라 프로필 사진"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -310,11 +364,11 @@
 
 <section id="career">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Career</p>
       <h2>경력</h2>
     </div>
-    <ul class="career-list">
+    <ul class="career-list reveal">
       <li>숭실대학교 음악학사(피아노) 실기 수석 졸업</li>
       <li>테너 박성원(전 국립오페라단 단장, 연세대 명예교수) 전속 피아니스트</li>
       <li>갈라콘서트 및 독창회 오페라 500회 이상 반주</li>
@@ -332,19 +386,19 @@
 
 <section id="posters">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Performances</p>
       <h2>연주 포스터</h2>
     </div>
-    <div class="poster-grid" id="posterGrid">
-      <button class="poster-card" data-full="posters/1.jpg"><img src="posters/1.jpg" alt="공연 포스터 1" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/2.jpg"><img src="posters/2.jpg" alt="공연 포스터 2" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/3.jpg"><img src="posters/3.jpg" alt="공연 포스터 3" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/4.jpg"><img src="posters/4.jpg" alt="공연 포스터 4" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/5.jpg"><img src="posters/5.jpg" alt="공연 포스터 5" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/7.jpg"><img src="posters/7.jpg" alt="공연 포스터 7" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/8.jpg"><img src="posters/8.jpg" alt="공연 포스터 8" loading="lazy"></button>
-      <button class="poster-card" data-full="posters/9.jpg"><img src="posters/9.jpg" alt="공연 포스터 9" loading="lazy"></button>
+    <div class="poster-grid reveal" id="posterGrid">
+      <button class="poster-card" data-full="posters/1.jpg"><img src="posters/1.jpg" alt="공연 포스터 1" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/2.jpg"><img src="posters/2.jpg" alt="공연 포스터 2" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/3.jpg"><img src="posters/3.jpg" alt="공연 포스터 3" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/4.jpg"><img src="posters/4.jpg" alt="공연 포스터 4" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/5.jpg"><img src="posters/5.jpg" alt="공연 포스터 5" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/7.jpg"><img src="posters/7.jpg" alt="공연 포스터 7" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/8.jpg"><img src="posters/8.jpg" alt="공연 포스터 8" loading="lazy"><span class="poster-zoom">확대보기</span></button>
+      <button class="poster-card" data-full="posters/9.jpg"><img src="posters/9.jpg" alt="공연 포스터 9" loading="lazy"><span class="poster-zoom">확대보기</span></button>
     </div>
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
@@ -355,11 +409,11 @@
 
 <section id="lessons">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Accompaniment</p>
       <h2>입시반주 안내</h2>
     </div>
-    <div class="lesson-box">
+    <div class="lesson-box reveal">
       <p>
         예중·예고·음대 입시를 준비하는 학생들을 위한 전문 반주를 제공합니다.<br>
         풍부한 무대 반주 경험을 바탕으로, 레슨실 연습 단계부터 실기시험
@@ -377,12 +431,12 @@
 
 <section id="academy">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Academy</p>
       <h2>조이피아노 음악학원</h2>
     </div>
     <p class="academy-badge">JOY PIANO MUSIC ACADEMY · 교육청등록번호 제1-2216호</p>
-    <div class="academy-grid">
+    <div class="academy-grid reveal">
       <div class="academy-info">
         <p>
           피아노 전공 원장님의 1:1 맞춤 레슨.<br>
@@ -409,7 +463,7 @@
         </p>
       </div>
     </div>
-    <div class="academy-contact">
+    <div class="academy-contact reveal">
       <p><strong>위치</strong> 인천시 부평구 경인로701번길 41 1층<br>(동암초등학교 후문 100m)</p>
     </div>
   </div>
@@ -417,11 +471,11 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Contact</p>
       <h2>문의</h2>
     </div>
-    <ul class="contact-list">
+    <ul class="contact-list reveal">
       <li>전화: <a href="tel:0507-1304-8709">0507-1304-8709</a></li>
       <li>이메일: <a href="mailto:armg0717@gmail.com">armg0717@gmail.com</a></li>
     </ul>
@@ -466,6 +520,35 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const navLinkByHash = new Map();
+  navLinks.querySelectorAll('a[href^="#"]').forEach(a => {
+    navLinkByHash.set(a.getAttribute('href').slice(1), a);
+  });
+  const spySections = [...navLinkByHash.keys()]
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = navLinkByHash.get(entry.target.id);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.querySelectorAll('a.active').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  spySections.forEach(sec => spyObserver.observe(sec));
 </script>
 
 </body>
