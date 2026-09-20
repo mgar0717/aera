@@ -189,6 +189,7 @@
   section{padding:88px 0;position:relative;scroll-margin-top:76px;}
   @media (max-width:700px){
     section{padding:56px 0;}
+    .contact{padding-bottom:36px;}
   }
   section + section::before{
     content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
@@ -303,6 +304,10 @@
   .academy-divider{width:1px;align-self:stretch;background:var(--line);}
   .academy-info p,.academy-tuition p{color:var(--ink-soft);margin:0;}
   .academy-tuition h3{font-size:1.05rem;margin-bottom:16px;}
+  .tuition-freq{
+    font-family:'Pretendard Variable',Pretendard,sans-serif;
+    font-weight:400;font-size:.85rem;color:var(--ink-soft);
+  }
   .tuition-list{list-style:none;margin:0 0 16px;padding:0;}
   .tuition-list li{
     display:flex;justify-content:space-between;
@@ -331,7 +336,6 @@
     padding:24px;text-align:center;font-size:.8rem;
     color:#c9bfa9;background:var(--accent-2);
   }
-  .footer-mark{color:#c8ab77;font-size:1rem;margin-bottom:10px;opacity:.8;}
 </style>
 </head>
 <body>
@@ -506,7 +510,7 @@
       </div>
       <div class="academy-divider" aria-hidden="true"></div>
       <div class="academy-tuition">
-        <h3>교습과목 / 수강료 (주 4회)</h3>
+        <h3>교습과목 / 수강료 <span class="tuition-freq">(주 4회)</span></h3>
         <ul class="tuition-list">
           <li><span>바이엘</span><span>12만원</span></li>
           <li><span>체르니100</span><span>13만원</span></li>
@@ -536,7 +540,6 @@
 </section>
 
 <footer>
-  <div class="footer-mark" aria-hidden="true">♪</div>
   &copy; <span id="year"></span> PIANIST 정애라. All rights reserved.
 </footer>
 
