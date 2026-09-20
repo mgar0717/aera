@@ -294,9 +294,10 @@
 
   /* Academy */
   .academy-badge{
-    text-align:center;color:var(--ink-soft);font-size:.85rem;
-    margin-top:-32px;margin-bottom:48px;
+    text-align:center;color:var(--ink-soft);font-size:.85rem;margin:0;
   }
+  .academy-badge:first-of-type{margin-top:-32px;}
+  .academy-location{margin-top:6px;margin-bottom:48px;}
   .academy-card{
     display:grid;grid-template-columns:1.1fr auto .9fr;gap:28px;align-items:start;
     max-width:880px;margin:0 auto;text-align:left;
@@ -305,12 +306,6 @@
     box-shadow:0 4px 20px rgba(28,26,23,.05);
   }
   .academy-divider{width:1px;align-self:stretch;background:var(--line);}
-  .academy-fact{margin-bottom:16px;}
-  .academy-fact:last-child{margin-bottom:0;}
-  .academy-fact-label{
-    display:block;color:var(--accent);font-weight:700;
-    font-size:.75rem;letter-spacing:.05em;margin-bottom:4px;
-  }
   .academy-info p,.academy-tuition p{color:var(--ink-soft);margin:0;}
   .academy-tuition h3{font-size:1.05rem;margin-bottom:16px;}
   .tuition-list{list-style:none;margin:0 0 16px;padding:0;}
@@ -321,12 +316,6 @@
   .tuition-list li:last-child{border-bottom:none;}
   .tuition-list li span:last-child{color:var(--accent);font-weight:500;}
   .tuition-note{font-size:.82rem;margin:0;}
-  .academy-contact{
-    max-width:880px;margin:32px auto 0;text-align:center;
-    font-size:.95rem;color:var(--ink-soft);
-  }
-  .academy-contact p{margin:0;}
-  .academy-contact p a{color:var(--accent);font-weight:500;}
   @media (max-width:700px){
     .academy-card{grid-template-columns:1fr;padding:28px 24px;}
     .academy-divider{width:100%;height:1px;}
@@ -510,24 +499,14 @@
       <h2>조이피아노 교습소</h2>
     </div>
     <p class="academy-badge">교육청등록번호 제1-2216호</p>
+    <p class="academy-badge academy-location">위치 인천시 부평구 경인로701번길 41 1층 (동암초등학교 후문 100m)</p>
     <div class="academy-card reveal">
       <div class="academy-info">
-        <div class="academy-fact">
-          <span class="academy-fact-label">대상</span>
-          <p>유아 · 초 · 중 · 고 · 성인</p>
-        </div>
-        <div class="academy-fact">
-          <span class="academy-fact-label">방식</span>
-          <p>기초부터 탄탄한 1:1 맞춤 지도</p>
-        </div>
-        <div class="academy-fact">
-          <span class="academy-fact-label">프로그램</span>
-          <p>정기연주회 · 콩쿨참여</p>
-        </div>
-        <div class="academy-fact">
-          <span class="academy-fact-label">과목</span>
-          <p>클래식 · 재즈반주법 · CCM · 음악이론</p>
-        </div>
+        <p>
+          유아부터 초·중·고, 성인까지 기초부터 탄탄한 1:1 맞춤
+          지도를 진행합니다. 정기연주회·콩쿨 참여는 물론, 클래식·재즈반주법·CCM·음악이론까지
+          폭넓게 배울 수 있습니다.
+        </p>
       </div>
       <div class="academy-divider" aria-hidden="true"></div>
       <div class="academy-tuition">
@@ -543,9 +522,6 @@
           재즈반주법 · CCM · 음악이론은 별도 상담
         </p>
       </div>
-    </div>
-    <div class="academy-contact reveal">
-      <p><strong>위치</strong> 인천시 부평구 경인로701번길 41 1층<br>(동암초등학교 후문 100m)</p>
     </div>
   </div>
 </section>
