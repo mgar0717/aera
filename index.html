@@ -313,7 +313,10 @@
   .tuition-list li:last-child{border-bottom:none;}
   .tuition-list li span:last-child{color:var(--accent);font-weight:500;}
   .academy-meta{font-size:.78rem;color:var(--ink-soft);margin:4px 0 0;text-align:center;}
-  .academy-meta a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+  .academy-meta a{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--accent);
+  }
   .academy-meta:first-of-type{
     margin-top:16px;padding-top:16px;border-top:1px solid var(--line);
   }
@@ -331,8 +334,6 @@
     margin:8px 0;
   }
   .contact-icon{color:#c8ab77;flex-shrink:0;}
-  .contact .btn{background:var(--ivory);color:var(--accent-2);}
-  .contact .btn:hover{background:#e7ddc9;}
   footer{
     padding:24px;text-align:center;font-size:.8rem;
     color:#c9bfa9;background:var(--accent-2);
@@ -519,7 +520,12 @@
           <li><span>성인</span><span>15만원</span></li>
         </ul>
         <p class="academy-meta">교육청등록번호 제1-2216호</p>
-        <p class="academy-meta"><a href="https://naver.me/xuFt4zd8" target="_blank" rel="noopener">인천시 부평구 경인로701번길 41 1층 (동암초등학교 후문 100m)</a></p>
+        <p class="academy-meta">
+          <a href="https://naver.me/xuFt4zd8" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            인천시 부평구 경인로701번길 41 1층 (동암초등학교 후문 100m)
+          </a>
+        </p>
       </div>
     </div>
   </div>
@@ -545,7 +551,6 @@
         <a href="https://youtube.com/@joy_piano" target="_blank" rel="noopener">@joy_piano</a>
       </li>
     </ul>
-    <a href="tel:0507-1304-8709" class="btn">전화로 문의하기</a>
   </div>
 </section>
 
