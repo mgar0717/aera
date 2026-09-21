@@ -224,15 +224,23 @@
     text-align:center;padding:40px 0;
   }
   .stat{
+    display:block;
     background:var(--ivory);border:1px solid var(--line);
     border-radius:var(--radius);padding:24px 12px;
     box-shadow:0 4px 16px rgba(28,26,23,.05);
+    text-decoration:none;color:inherit;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
   }
+  .stat:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(28,26,23,.09);
+    border-color:var(--accent);
+  }
+  .stat:active{transform:translateY(0);}
   .stat strong{
     display:block;font-family:'Cafe24OhsquareAir',var(--font-en);
-    font-size:clamp(1.2rem,4vw,1.7rem);color:var(--accent-2);margin-bottom:6px;
+    font-size:clamp(1.2rem,4vw,1.7rem);color:var(--accent-2);
   }
-  .stat span{font-size:.8rem;color:var(--ink-soft);}
   @media (max-width:700px){
     .stat-grid{gap:28px 20px;padding:32px 0;}
   }
@@ -454,10 +462,10 @@
 
 <section class="stats">
   <div class="wrap stat-grid reveal">
-    <div class="stat"><strong>성악반주</strong><span>현역 반주자</span></div>
-    <div class="stat"><strong>입시반주</strong><span>예중·예고·음대 실기시험</span></div>
-    <div class="stat"><strong>맞춤반주</strong><span>어떤 조성이든 즉흥 맞춤 반주</span></div>
-    <div class="stat"><strong>맞춤 레슨</strong><span>유아~성인 1:1 교습</span></div>
+    <a href="#lessons" class="stat"><strong>성악반주</strong></a>
+    <a href="#lessons" class="stat"><strong>입시반주</strong></a>
+    <a href="#lessons" class="stat"><strong>맞춤반주</strong></a>
+    <a href="#academy" class="stat"><strong>맞춤 레슨</strong></a>
   </div>
 </section>
 
