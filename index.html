@@ -419,7 +419,11 @@
   }
   .contact-link:active{transform:translateY(0);}
   .contact-icon{color:#c8ab77;flex-shrink:0;}
-  .contact-list .contact-video{margin-top:24px;}
+  .contact-list .contact-video{margin-top:24px;padding-top:24px;position:relative;}
+  .contact-list .contact-video::before{
+    content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:40px;height:2px;background:var(--accent);border-radius:2px;
+  }
   .contact-video .contact-link{font-family:'Cafe24Ohsquare',var(--font-en);}
   footer{
     padding:24px;text-align:center;font-size:.8rem;
