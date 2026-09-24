@@ -424,7 +424,14 @@
     content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
     width:40px;height:2px;background:var(--accent);border-radius:2px;
   }
-  .contact-video .contact-link{font-family:'Cafe24OhsquareAir',var(--font-en);}
+  .contact-video .contact-link{
+    font-family:'Cafe24OhsquareAir',var(--font-en);
+    background:var(--accent);border-color:var(--accent);color:var(--ivory);
+  }
+  .contact-video .contact-link .contact-icon{color:var(--ivory);}
+  .contact-video .contact-link:hover{
+    background:#9c7d47;border-color:#9c7d47;
+  }
   footer{
     padding:24px;text-align:center;font-size:.8rem;
     color:#c9bfa9;background:var(--accent-2);
