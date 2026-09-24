@@ -398,11 +398,11 @@
   .contact{background:var(--accent-2);color:var(--ivory);text-align:center;padding-bottom:56px;}
   .contact .section-head .eyebrow{color:#c8ab77;}
   .contact .section-head h2{color:var(--ivory);}
-  .contact-list{list-style:none;margin:0;padding:0;color:#e7ddc9;}
-  .contact-list li{
-    display:flex;align-items:center;justify-content:center;
-    margin:10px 0;
+  .contact-list{
+    display:flex;flex-direction:column;align-items:center;gap:16px;
+    list-style:none;margin:0;padding:0;color:#e7ddc9;
   }
+  .contact-list li{display:flex;align-items:center;justify-content:center;}
   .contact-link{
     display:inline-flex;align-items:center;gap:10px;
     padding:10px 22px;border-radius:999px;
@@ -419,9 +419,9 @@
   }
   .contact-link:active{transform:translateY(0);}
   .contact-icon{color:#c8ab77;flex-shrink:0;}
-  .contact-list .contact-video{margin-top:24px;padding-top:24px;position:relative;}
+  .contact-list .contact-video{margin-top:16px;position:relative;}
   .contact-list .contact-video::before{
-    content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+    content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
     width:40px;height:2px;background:var(--accent);border-radius:2px;
   }
   .contact-video .contact-link{
